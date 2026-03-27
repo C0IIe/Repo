@@ -1,98 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Page</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(270deg, #6a11cb, #2575fc);
-      background-size: 400% 400%;
-      animation: gradientMove 8s ease infinite;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
+    <meta charset="UTF-8">
+    <title>Happy Birthday 🎉</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #56ab2f, #a8e063);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        h1 {
+            margin-top: 30px;
+            font-size: 3em;
+            animation: bounce 1s infinite alternate;
+        }
 
-    .box {
-      text-align: center;
-      padding: 40px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      animation: float 3s ease-in-out infinite;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
-    }
+        img {
+            margin-top: 20px;
+            max-width: 90%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+        }
 
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      animation: fadeIn 2s ease forwards;
-    }
+        .message {
+            font-size: 1.4em;
+            margin-top: 20px;
+            max-width: 80%;
+        }
 
-    p {
-      margin-top: 10px;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards;
-      animation-delay: 1s;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background: #ffffff;
-      color: #2575fc;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.3s;
-    }
-
-    button:hover {
-      transform: scale(1.1);
-      background: #ddd;
-    }
-  </style>
+        @keyframes bounce {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-12px); }
+        }
+    </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Hello World 🚀</h1>
-    <p>This is a simple animated webpage</p>
-    <button onclick="changeText()">Click Me</button>
-  </div>
 
-  <script>
-    function changeText() {
-      const heading = document.querySelector('h1');
-      heading.textContent = 'You clicked the button! 🎉';
-    }
-  </script>
+    <div class="container">
+        <h1>🎂 Happy Birthday! 🎂</h1>
+
+        <img src="penny-polendina-rwby.gif">
+
+        <div class="message">
+            Wishing you lots of happiness, fun, and cake! 🎉🎁
+        </div>
+    </div>
+
 </body>
-  <img src="popo.jpg">
-</html>
+</html> 
