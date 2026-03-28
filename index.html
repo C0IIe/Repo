@@ -2,62 +2,136 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Happy Birthday 🎉</title>
+    <title>Neopolitan the Ice Cream 🍦</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #56ab2f, #a8e063);
-            font-family: Arial, sans-serif;
+            overflow: hidden;
+            font-family: "Comic Neue", "MV Boli", cursive;
             text-align: center;
-            color: white;
+            color: #333;
+
+            background: linear-gradient(
+                to bottom,
+                #ff9aa2 0%,
+                #ffdac1 33%,
+                #8b5e3c 66%
+            );
         }
 
         h1 {
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 3em;
-            animation: bounce 1s infinite alternate;
+            color: white;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         img {
             margin-top: 20px;
-            max-width: 90%;
+            max-width: 80%;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
         }
 
-        .message {
-            font-size: 1.4em;
+        .buttons {
             margin-top: 20px;
-            max-width: 80%;
         }
 
-        @keyframes bounce {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-12px); }
+        button {
+            margin: 10px;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            font-family: "Comic Neue", "MV Boli", cursive;
+        }
+
+        .strawberry { background: #ff6f91; }
+        .vanilla { background: #f7c59f; color: #333; }
+        .chocolate { background: #5a3e2b; }
+
+        .fact-box {
+            margin-top: 20px;
+            font-size: 1.2em;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        /* Floating ice cream */
+        .icecream {
+            position: absolute;
+            font-size: 24px;
+            animation: float 10s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🎂 Happy Birthday! 🎂</h1>
+        <h1>🍨 Neapolitan Ice Cream 🍨</h1>
 
-        <img src="penny-polendina-rwby.gif">
+        <img src="tumblr_p5dv4eoDv81vgzb86o3_640.gif">
 
-        <div class="message">
-            Wishing you lots of happiness, fun, and cake! 🎉🎁
+        <div class="buttons">
+            <button class="strawberry" onclick="showFact('strawberry')">🍓 Strawberry</button>
+            <button class="vanilla" onclick="showFact('vanilla')">🍦 Vanilla</button>
+<button class="chocolate" onclick="showFact('chocolate')">🍫 Chocolate</button>
+        </div>
+
+        <div class="fact-box" id="factBox">
+            Click a flavor to see a fun fact!
         </div>
     </div>
 
+    <script>
+        const facts = {
+            strawberry: "Strawberry ice cream was one of the first flavors ever made in the 1800s!",
+            vanilla: "Vanilla is the most popular ice cream flavor in the world!",
+            chocolate: "Chocolate ice cream dates back to recipes from the 1600s!"
+        };
+
+        function showFact(flavor) {
+            document.getElementById("factBox").innerText = facts[flavor];
+        }
+
+        function createIceCream() {
+            const ice = document.createElement("div");
+            ice.classList.add("icecream");
+            ice.innerHTML = ["🍦","🍧","🍨"][Math.floor(Math.random()*3)];
+
+            ice.style.left = Math.random() * 100 + "vw";
+            ice.style.animationDuration = (5 + Math.random() * 5) + "s";
+            ice.style.fontSize = (20 + Math.random() * 30) + "px";
+
+            document.body.appendChild(ice);
+
+            setTimeout(() => {
+                ice.remove();
+            }, 10000);
+        }
+
+        setInterval(createIceCream, 300);
+    </script>
+
 </body>
-</html> 
+</html>
